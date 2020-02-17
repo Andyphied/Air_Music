@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'music/base.html' %}
+    {% block body %}
+        {% if all_albums %}
+            <ul>
+                {% for album in all_albums %}
+                    <li style="color:turquoise"><a href = "{% url 'music:detail' album.id %}">{{ album.album_title }}</a></li>
+                {% endfor %}
+        </ul>
+        {% else %}
+            <h3 style="color:turquoise;font-family:'Courier New',monospace" > Hey Mate You Have No Album Present</h3>
+        {% endif %}
+
+    {% endblock %}
+</html>]

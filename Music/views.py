@@ -1,6 +1,15 @@
-from django.http import HttpResponse
+from django.views import generic
+from .models import Album
 
 
-def index(request):
-    return HttpResponse('<h1> This is the Beginning Of The Journey')
+class IndexView(generic.ListView):
+    template_name = 'music/index.html'
+    context_object_name = 'all_albums'
 
+    def get_queryset(self):
+        return Album.objects.all()
+
+
+class DetailView(generic.DetailView):
+    model = Album
+    template_name = 'music/detail.html'

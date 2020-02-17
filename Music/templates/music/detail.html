@@ -1,0 +1,25 @@
+{% extends 'music/base.html' %}
+<title> {% block title %}Album Details {% endblock %}</title>
+{% block body %}
+
+    <img src = "{{album.album_logo}}" alt="Not Displayed" style="width: 250px;">
+
+    <h1 style="color:turquoise">{{album.album_title}}</h1>
+    <h2 style="color:ghostwhite"> {{album.artist}}</h2>
+
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+
+    {% endif %}
+
+        {% for song in album.songs_set.all %}
+           <a style="color:grey">{{ song.song_title }}</a>
+            {% if song.is_favorite %}
+                <img src="https://pngtree.com/free-star-png" alt="favorite image"/>
+            {% endif %}
+            <br>
+        {% endfor %}
+
+{% endblock %}
+
+
