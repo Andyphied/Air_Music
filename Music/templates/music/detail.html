@@ -1,24 +1,87 @@
 {% extends 'music/base.html' %}
 <title> {% block title %}Album Details {% endblock %}</title>
 {% block body %}
+    <main class="mt-5 pt-5">
+        <div class="container-fluid songs-container">
 
-    <img src = "{{album.album_logo}}" alt="Not Displayed" style="width: 250px;">
+            <div class="row">
 
-    <h1 style="color:turquoise">{{album.album_title}}</h1>
-    <h2 style="color:ghostwhite"> {{album.artist}}</h2>
+                <!-- Left Album Info -->
+                <div class="col-sm-4 col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <a href="{% url 'music:detail' album.id %}">
+                                <img src="{{album.album_logo}}" class="card-img-top" alt="Not Displayed">
+                            </a>
+                            <h1 class= 'white-text'>{{ album.album_title }} <small>{{ album.genre }}</small></h1>
+                            <h2 class= 'white-text'>{{ album.artist }}</h2>
+                        </div>
+                    </div>
+                </div>
 
-    {% if error_message %}
-        <p><strong>{{ error_message }}</strong></p>
+                <!-- Right Song Info -->
+                <div class="col-sm-8 col-md-9">
 
-    {% endif %}
+                    <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                        <li role="presentation" class="active"><a href="{% url 'music:detail' album.id %}">View All</a></li>&nbsp
+                        <li role="presentation"><a href="{% url 'music:create_song' album.id %}">Add New Song</a></li>
+                    </ul>
 
-        {% for song in album.songs_set.all %}
-           <a style="color:grey">{{ song.song_title }}</a>
-            {% if song.is_favorite %}
-                <img src="https://pngtree.com/free-star-png" alt="favorite image"/>
-            {% endif %}
-            <br>
-        {% endfor %}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+
+                            <h3 class= 'red-text'>All Songs</h3>
+
+                            {% if error_message %}
+                                <p><strong>{{ error_message }}</strong></p>
+                            {% endif %}
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Audio File</th>
+                                    <th>Favorite</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for song in album.songs_set.all %}
+                                    <tr>
+                                        <td>{{ song.song_title }}</td>
+                                        <td class = "d-inline-block align-top">
+                                            <a target="_blank" href="{{ song.audio_file.url }}">
+                                                <button type="button" class="btn btn-success btn-sm ">
+                                                    <span class="fa fa-play"></span>&nbsp; Play
+                                                </button>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'music:favorite' song.id %}" class="btn-favorite"><span class="fa fa-star {% if song.is_favorite %}active{% endif %}"></span></a>
+                                        </td>
+                                        <td>
+                                            <form action="{% url 'music:delete_song' album.id song.id %}" method="post" style="display: inline;">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="song_id" value="{{ song.id }}" />
+                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                    <span class="fa fa-trash"></span>&nbsp; Delete
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+     </main>   
 
 {% endblock %}
 

@@ -1,0 +1,368 @@
+{% block title %}Register{% endblock %}
+{% block register_active %}active{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Air Music</title>
+    {% load staticfiles %}
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href= "{% static 'css/mdb.min.css' %}" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <style type="text/css">
+        html,
+        body,
+        header,
+        .view {
+        height: 100%;
+        }
+
+        @media (max-width: 740px) {
+        html,
+        body,
+        header,
+        .view {
+            height: 1000px;
+        }
+        }
+
+        @media (min-width: 800px) and (max-width: 850px) {
+        html,
+        body,
+        header,
+        .view {
+            height: 650px;
+        }
+        }
+        @media (min-width: 800px) and (max-width: 850px) {
+                .navbar:not(.top-nav-collapse) {
+                    background: #1C2331!important;
+                }
+            }
+    </style>
+    
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src= "{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+    <!-- Main Js for Project -->
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <!-- Initializations -->
+    <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+    </script>
+
+
+</head>
+
+
+
+    <!--Main Navigation-->
+    <body>
+
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+            <div class="container">
+
+                <!-- Brand -->
+                <a class="navbar-brand waves-effect" href="{% url "music:index" %}" target="_blank">
+                    <img src="https://img.icons8.com/clouds/100/000000/music.png" width="30" height="30" class="d-inline-block align-top" alt="" >
+                    <strong class="red-text">Air Music</strong>
+                </a>
+
+                <!-- Collapse -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Links -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <!-- Left -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link waves-effect" href="{% url 'login_user' %}">
+                                Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect" href="#" target="_blank">
+                                 About Us
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect" href="#" target="_blank">Contact Us</a>
+                        </li>
+                    </ul>
+
+                    <!-- Right -->
+                    <ul class="navbar-nav nav-flex-icons">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" target="_blank">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                        <li class="nav-item">
+                            <a href="https://github.com/Andyphied" class="nav-link border border-light rounded waves-effect" target="_blank">
+                                <i class="fab fa-github mr-2"></i>Andyphied GitHub
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav>
+    
+        <!-- Navbar -->
+
+        <!-- Full Page Intro -->
+<div class="view full-page-intro" style="background-image: url({% static 'music/images/aditya-chinchure-ZhQCZjr9fHo-unsplash.jpg' %}); background-repeat: no-repeat; background-size: cover;">
+
+            <!-- Mask & flexbox options-->
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+                <!-- Content -->
+                <div class="container">
+
+                    <!--Grid row-->
+                    <div class="row wow fadeIn">
+
+                        <!--Grid column-->
+                        <div class="col-md-6 mb-4 white-text text-center text-md-left">
+
+                            <h1 class="display-4 font-weight-bold">Air Music</h1>
+
+                            <hr class="hr-light">
+
+                            <p>
+                            <strong>Take the Party Anywhere you want</strong>
+                            </p>
+
+                            <p class="mb-4 d-none d-md-block">
+                            <strong>Move with the trend! With the cloud and 5G comes the ability to create your personal streaming service
+                                    Connect your various cloud storage service and stream music directly from it or you can directly upload</strong>
+                            </p>
+
+                            <a target="_blank" href="{% url 'register' %}" class="btn btn-indigo btn-lg">LET'S GET STARTED
+                            <i class="fas fa-hourglass-start ml-2"></i>
+                            </a>
+
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-6 col-xl-5 mb-4">
+
+                            <!--Card-->
+                            <div class="card">
+
+                                <!--Card content-->
+                                <div class="card-body">
+                                    <!-- Form -->
+
+                                    <form name=""role="form" action="{% url 'register'%}" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <!-- Heading -->
+                                        <h3 class="dark-grey-text text-center">
+                                            <strong>Register for an Account</strong>
+                                        </h3>
+                                        <hr>
+                                        {% if error_message %}
+                                            <p><strong>{{ error_message }}</strong></p>
+                                        {% endif %}
+                                        <div class="md-form">
+                                            <i class="fas fa-user prefix dark-text"></i>
+                                            <input name="username" maxlength="30" type="text" id="id_username" class="form-control">
+                                            <label for="id_username">Username</label>
+                                        </div>
+                                        <div class="md-form">
+                                            <i class="fas fa-envelope-square prefix dark-text"></i>
+                                            <input type="email" id="id_email" class="form-control" maxlength="30" name="email" type="email">
+                                            <label for="id_password">Email Address</label>
+                                        </div>
+                                        <div class="md-form">
+                                            <i class="fas fa-key prefix dark-text"></i>
+                                            <input type="password" id="id_password" class="form-control" maxlength="30" name="password" type="password">
+                                            <label for="id_password">Password</label>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-indigo">Submit</button>
+                                            <hr>
+                                        </div>
+
+                                        <div class="panel-footer text-center">
+                                            Already have an account? <a href="{% url 'login_user' %}">Click here</a> to login.
+                                        </div>
+
+                                    </form>
+                                    <!-- Form -->
+
+
+                                </div>
+
+                            </div>
+                            <!--/.Card-->
+
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+                    <!--Grid row-->
+
+                </div>
+                <!-- Content -->
+
+            </div>
+            <!-- Mask & flexbox options-->
+
+        </div>
+        <!-- Full Page Intro -->
+
+        <!--Section: Main info-->
+        <div class="container">
+
+            <!--Section: Main info-->
+            <section class="mt-5 wow fadeIn">
+
+                <!--Grid row-->
+                <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4">
+
+                    <img src="{% static 'music/images/graffiti-2024320_1280.png' %}" class="img-fluid z-depth-1-half" alt="">
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4">
+
+                    <!-- Main heading -->
+                    <h3 class="h3 mb-3">Made For Music Lovers</h3>
+                    <p>Every Music Lover needs to get on (
+                        <strong>Air Music</strong> ).</p>   
+                    <p>Read details below to learn more about Air Music.</p>
+                    <!-- Main heading -->
+
+                    <hr>
+
+                    <p>
+                        <strong>150Gb</strong> worth of cloud space,
+                        <strong>6000+</strong> songs can be added,
+                        <strong>0</strong> space taken on your device
+                        <strong>Free for personal and commercial use.</strong>
+                    </p>
+
+                    <!-- CTA -->
+                    <a target="_blank" href="#" class="btn btn-indigo btn-md">Download
+                        <i class="fas fa-download ml-1"></i>
+                    </a>
+                    <a target="_blank" href="#" class="btn btn-indigo btn-md">Live demo
+                        <i class="far fa-image ml-1"></i>
+                    </a>
+
+                </div>
+                <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+            </section>
+            <!--Section: Main info-->
+        
+        </div>
+        <!--Section: Main info-->
+    </body>
+
+    <!--Footer-->
+    <footer class="footer text-center font-small mdb-color lighten-3 mt-4 wow fadeIn">
+
+        <!--Call to action-->
+        <div class="pt-4">
+            <a class="btn btn-outline-white" href="#/" target="_blank" role="button">Download Mobile App
+                <i class="fas fa-download ml-2"></i>
+            </a>
+            <a class="btn btn-outline-white" href="#" target="_blank" role="button">Start free trial
+                <i class="fas fa-handshake ml-2"></i>
+            </a>
+        </div>
+        <!--/.Call to action-->
+
+        <hr class="my-4">
+
+        <!-- Social icons -->
+        <div class="pb-4">
+            <a href="https://www.facebook.com/Andyphied" target="_blank">
+                <i class="fab fa-facebook-f mr-3"></i>
+            </a>
+
+            <a href="https://twitter.com/Andyphied" target="_blank">
+                <i class="fab fa-twitter mr-3"></i>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+                <i class="fab fa-youtube mr-3"></i>
+            </a>
+
+            <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+                <i class="fab fa-google-plus-g mr-3"></i>
+            </a>
+
+            <a href="https://dribbble.com/Andyphied" target="_blank">
+                <i class="fab fa-dribbble mr-3"></i>
+            </a>
+
+            <a href="https://pinterest.com/Andyphied" target="_blank">
+                <i class="fab fa-pinterest mr-3"></i>
+            </a>
+
+            <a href="https://github.com/Andyphied/bootstrap-material-design" target="_blank">
+                <i class="fab fa-github mr-3"></i>
+            </a>
+
+            <a href="http://codepen.io/Andyphied/" target="_blank">
+                <i class="fab fa-codepen mr-3"></i>
+            </a>
+        </div>
+        <!-- Social icons -->
+
+        <!--Copyright-->
+        <div class="footer-copyright py-3 black-text">
+            © 2020 Copyright:
+            <a target="_blank" class= 'red-text'> Air Music </a>
+        </div>
+        <!--/.Copyright-->
+
+    </footer>
+    <!--/.Footer-->
+
+    
+
+</html>
+
+
+
+
